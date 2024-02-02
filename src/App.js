@@ -15,18 +15,9 @@ import TodoDisplay from './components/TodoDisplay';
 
 function App() {
 
-  const [tasks,setTasks] = useState([
-    {
-      id:4,
-      task:'Go to the legon event',
-      day:"Monday at 4:00PM"
-    },
-    {
-      id:7,
-      task:'Go to school',
-      day:"Monday at 2:00PM"
-    }
-  ])
+  const [tasks,setTasks] = useState([])
+  const [showAddTask,setShowAddTask] = useState(false)
+  const [editedTask,setEditedTask] = useState("")
 
   const addTask = (newTask) =>{
      setTasks([...tasks,newTask])
@@ -40,8 +31,6 @@ function App() {
     })
    }
 
-   const [editedTask,setEditedTask] = useState("")
-
    const editTodoItem = (task) => {
       setEditedTask(task)
    }
@@ -50,8 +39,6 @@ function App() {
         const updatedTasks = tasks.map(task=>task.id === updatedTask.id ? updatedTask : task)
         setTasks(updatedTasks)
    }
-
-  const [showAddTask,setShowAddTask] = useState(true)
 
   const toggleAddTask = () => {
            setShowAddTask(!showAddTask)

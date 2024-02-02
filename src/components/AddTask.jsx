@@ -32,7 +32,7 @@ const AddTask = ({AddTask,editTask,saveTask}) => {
     }
     AddTask(newTask)
     toast.success("Task Added Successfully",{
-      autoClose:1500,
+      autoClose: 1500,
       pauseOnHover:false
     })
     setTask('')
@@ -71,7 +71,10 @@ const AddTask = ({AddTask,editTask,saveTask}) => {
     saveTask(updatedTask)
     setDay('')
     setTask('')
-    toast.success("Task Updated Successfully")
+    toast.success("Task Added Successfully",{
+      autoClose: 1500,
+      pauseOnHover:false
+    })
     setEditing(false)
   }
 

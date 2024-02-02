@@ -1,0 +1,15 @@
+.container{
+    display:flex;
+}
+.container button{
+    margin:auto;
+    background-color:green;
+    padding:10px 20px;
+    border-radius:5px;
+    color:white;
+    border:none;
+    cursor: pointer;
+}
+.container button:active{
+    transform:scale(0.95)
+}

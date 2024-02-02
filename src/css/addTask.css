@@ -1,0 +1,24 @@
+.container{
+    display:flex;
+    flex-direction:column;
+    padding:0px 20px;
+}
+.first-input,.second-input{
+    display:flex;
+    flex-direction: column;
+}
+.second-input{
+    margin-top:10px;
+}
+input[type="text"],input[type="date"]{
+    padding:10px;
+}
+.container .btn{
+    padding:10px 145px;
+    background-color:#2666CF;
+    color:white;
+    border:none;
+    margin-top:30px;
+    cursor:pointer;
+    border-radius: 5px;
+}

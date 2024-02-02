@@ -1,5 +1,4 @@
-import {toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+
 
 import '../css/tododisplay.css'
 import deleteTodo from '../images/delete.png'

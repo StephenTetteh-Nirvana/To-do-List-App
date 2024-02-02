@@ -46,8 +46,7 @@ const AddTask = ({AddTask,editTask,saveTask}) => {
        setDay(editTask.day)
        setTask(editTask.task)
        setEditing(true)
-    }  
-    else{
+    }else{
       setEditing(false)
     }
   },[editTask])
@@ -71,7 +70,7 @@ const AddTask = ({AddTask,editTask,saveTask}) => {
     saveTask(updatedTask)
     setDay('')
     setTask('')
-    toast.success("Task Added Successfully",{
+    toast.success("Task Updated Successfully",{
       autoClose: 1500,
       pauseOnHover:false
     })

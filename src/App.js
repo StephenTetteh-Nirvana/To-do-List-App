@@ -26,9 +26,6 @@ function App() {
 
   const deleteTodoItem = (taskId) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
-    toast.error("Task Deleted Successfully",{
-      autoClose:1500
-    })
    }
 
    const editTodoItem = (task) => {
@@ -38,6 +35,7 @@ function App() {
    const saveTask = (updatedTask) => {
         const updatedTasks = tasks.map(task=>task.id === updatedTask.id ? updatedTask : task)
         setTasks(updatedTasks)
+        setEditedTask(null)
    }
 
   const toggleAddTask = () => {

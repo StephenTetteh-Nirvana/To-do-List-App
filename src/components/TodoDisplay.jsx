@@ -1,8 +1,12 @@
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 import '../css/tododisplay.css'
 import deleteTodo from '../images/delete.png'
 import editTodo from '../images/edit.png'
 
-const TodoDisplay = ({tasks}) => {
+const TodoDisplay = ({tasks,deleteItem,editItem}) => {
+    
 
   return (
     <div className="TodoDisplay">
@@ -11,12 +15,12 @@ const TodoDisplay = ({tasks}) => {
           <div className="todo" key={task.id}>
           <div className="info-box">
             <p className="title">{task.task}</p>
-            <p className="subtitle">{task.date} at {task.time}</p>
+            <p className="subtitle">{task.day}</p>
           </div>
           
           <div className="action-box">
-                <button className='editBtn'><img src={editTodo}/></button>
-                <button className='deleteBtn'><img src={deleteTodo}/></button>
+                <button className='editBtn' onClick={()=>{editItem(task)}}><img src={editTodo}/></button>
+                <button className='deleteBtn' onClick={()=>{deleteItem(task.id)}}><img src={deleteTodo}/></button>
           </div>
       </div>
         ))

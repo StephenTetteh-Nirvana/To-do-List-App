@@ -18,8 +18,9 @@
     font-weight:500;
 }
 .subtitle{
-    font-weight:300;
+    font-weight:500;
     color:#1d1d1d;
+    font-size:14px;
 }
 .editBtn,.deleteBtn{
     background:transparent;

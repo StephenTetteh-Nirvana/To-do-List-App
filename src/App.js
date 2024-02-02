@@ -1,3 +1,6 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useState } from 'react';
 
 import './App.css';
@@ -16,20 +19,12 @@ function App() {
     {
       id:4,
       task:'Go to the legon event',
-      date:'02/03/2024',
-      time:'2:30 PM',
+      day:"Monday at 4:00PM"
     },
     {
       id:7,
       task:'Go to school',
-      date:'02/03/2024',
-      time:'4:30 PM',
-    },
-    {
-      id:5,
-      task:'Go to work',
-      date:'02/03/2024',
-      time:'8:50 PM',
+      day:"Monday at 2:00PM"
     }
   ])
 
@@ -37,6 +32,24 @@ function App() {
      setTasks([...tasks,newTask])
      console.log(tasks)
   }
+
+  const deleteTodoItem = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+    toast.error("Task Deleted Successfully",{
+      autoClose:1500
+    })
+   }
+
+   const [editedTask,setEditedTask] = useState("")
+
+   const editTodoItem = (task) => {
+      setEditedTask(task)
+   }
+
+   const saveTask = (updatedTask) => {
+        const updatedTasks = tasks.map(task=>task.id === updatedTask.id ? updatedTask : task)
+        setTasks(updatedTasks)
+   }
 
   const [showAddTask,setShowAddTask] = useState(true)
 
@@ -46,19 +59,20 @@ function App() {
 
   return (
     <div className="App">
+          <ToastContainer/>
         <div className='todoContainer'>
           <div className='todoHeader'>
             <Header/>
             <Button show={toggleAddTask} text={showAddTask ? "Close" : "Open"} color={showAddTask ? "red" : "green"}/>
           </div>
 
-          {showAddTask ? (<AddTask AddTask={addTask}/>) : console.log("hidden")}
+          {showAddTask ? (<AddTask AddTask={addTask} editTask={editedTask} saveTask={saveTask}/>) : console.log("hidden")}
 
           {
             tasks.length > 0 ? (
-                 <TodoDisplay tasks={tasks}/>
+                 <TodoDisplay tasks={tasks} deleteItem={deleteTodoItem} editItem={editTodoItem}/>
             ) : (
-                <h1>No Tasks To Show</h1>
+                <h1 className='no-tasks'>No Tasks To Show</h1>
             )}
          
      
